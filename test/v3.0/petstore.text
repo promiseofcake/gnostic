@@ -210,6 +210,21 @@ components: <
               >
             >
             additional_properties: <
+              name: "nicknames"
+              value: <
+                schema: <
+                  type: "array"
+                  items: <
+                    schema_or_reference: <
+                      schema: <
+                        type: "string"
+                      >
+                    >
+                  >
+                >
+              >
+            >
+            additional_properties: <
               name: "tag"
               value: <
                 schema: <

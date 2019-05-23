@@ -286,6 +286,8 @@ func (b *OpenAPI3Builder) typeForSchema(schema *openapiv3.Schema) (kind FieldKin
 						return FieldKind_ARRAY, "string", format
 					} else if a[0].GetSchema().Type == "object" {
 						return FieldKind_ARRAY, "object", format
+					} else if a[0].GetSchema().Type == "array" {
+						return b.typeForSchema(a[0].GetSchema())
 					}
 				}
 			}

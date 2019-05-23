@@ -291,6 +291,27 @@ func buildDocumentV3() *v3.Document {
 											},
 										},
 										&v3.NamedSchemaOrReference{
+											Name: "nicknames",
+											Value: &v3.SchemaOrReference{
+												Oneof: &v3.SchemaOrReference_Schema{
+													Schema: &v3.Schema{
+														Type: "array",
+														Items: &v3.ItemsItem{
+															SchemaOrReference: []*v3.SchemaOrReference{
+																&v3.SchemaOrReference{
+																	Oneof: &v3.SchemaOrReference_Schema{
+																		Schema: &v3.Schema{
+																			Type: "string",
+																		},
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+										&v3.NamedSchemaOrReference{
 											Name: "tag",
 											Value: &v3.SchemaOrReference{
 												Oneof: &v3.SchemaOrReference_Schema{

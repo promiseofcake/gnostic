@@ -145,6 +145,12 @@
           "name": {
             "type": "string"
           },
+          "nicknames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "tag": {
             "type": "string"
           }

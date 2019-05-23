@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -37,9 +38,15 @@ func testCompiler(t *testing.T, inputFile string, referenceFile string, expectEr
 	} else {
 		testFile = outputFile
 	}
-	err = exec.Command("diff", testFile, referenceFile).Run()
+	diffCmd := exec.Command("diff", testFile, referenceFile)
+
+	var bts []byte
+	stdOut := bytes.NewBuffer(bts)
+	diffCmd.Stdout = stdOut
+
+	err =  diffCmd.Run()
 	if err != nil {
-		t.Logf("Diff failed: %+v", err)
+		t.Logf("Diff failed: %s", stdOut.String())
 		t.FailNow()
 	} else {
 		// if the test succeeded, clean up
@@ -359,6 +366,7 @@ func testBuilder(version string, t *testing.T) {
 	textFile := "petstore.text"
 	textReference := "test/" + version + ".0/petstore.text"
 
+
 	os.Remove(pbFile)
 	os.Remove(textFile)
 	os.Remove(yamlFile)
@@ -399,11 +407,18 @@ func testBuilder(version string, t *testing.T) {
 	}
 
 	// Verify that the generated text matches our reference.
-	err = exec.Command("diff", textFile, textReference).Run()
+	cmd := exec.Command("diff", textFile, textReference)
+
+	var bts []byte
+	stdOut := bytes.NewBuffer(bts)
+	cmd.Stdout = stdOut
+
+	err = cmd.Run()
 	if err != nil {
-		t.Logf("Diff failed: %+v", err)
+		t.Logf("Diff failed: %s", stdOut.String())
 		t.FailNow()
 	}
+	stdOut.Reset()
 
 	// Read petstore.json, resolve references, and export text.
 	command = exec.Command(
@@ -418,9 +433,10 @@ func testBuilder(version string, t *testing.T) {
 	}
 
 	// Verify that the generated text matches our reference.
-	err = exec.Command("diff", textFile, textReference).Run()
+	cmd = exec.Command("diff", textFile, textReference)
+	cmd.Stdout = stdOut
 	if err != nil {
-		t.Logf("Diff failed: %+v", err)
+		t.Logf("Diff failed: %s", stdOut.String())
 		t.FailNow()
 	}
 

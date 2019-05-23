@@ -92,6 +92,10 @@ components:
           format: int64
         name:
           type: string
+        nicknames:
+          type: array
+          items:
+            type: string
         tag:
           type: string
     Pets:
