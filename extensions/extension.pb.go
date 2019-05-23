@@ -3,10 +3,12 @@
 
 package openapiextension_v1
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import any "github.com/golang/protobuf/ptypes/any"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // The version number of OpenAPI compiler.
 type Version struct {
@@ -36,16 +38,17 @@ func (m *Version) Reset()         { *m = Version{} }
 func (m *Version) String() string { return proto.CompactTextString(m) }
 func (*Version) ProtoMessage()    {}
 func (*Version) Descriptor() ([]byte, []int) {
-	return fileDescriptor_extension_d25f09c742c58c90, []int{0}
+	return fileDescriptor_2d065b70573ae483, []int{0}
 }
+
 func (m *Version) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Version.Unmarshal(m, b)
 }
 func (m *Version) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Version.Marshal(b, m, deterministic)
 }
-func (dst *Version) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Version.Merge(dst, src)
+func (m *Version) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Version.Merge(m, src)
 }
 func (m *Version) XXX_Size() int {
 	return xxx_messageInfo_Version.Size(m)
@@ -100,16 +103,17 @@ func (m *ExtensionHandlerRequest) Reset()         { *m = ExtensionHandlerRequest
 func (m *ExtensionHandlerRequest) String() string { return proto.CompactTextString(m) }
 func (*ExtensionHandlerRequest) ProtoMessage()    {}
 func (*ExtensionHandlerRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_extension_d25f09c742c58c90, []int{1}
+	return fileDescriptor_2d065b70573ae483, []int{1}
 }
+
 func (m *ExtensionHandlerRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ExtensionHandlerRequest.Unmarshal(m, b)
 }
 func (m *ExtensionHandlerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ExtensionHandlerRequest.Marshal(b, m, deterministic)
 }
-func (dst *ExtensionHandlerRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExtensionHandlerRequest.Merge(dst, src)
+func (m *ExtensionHandlerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExtensionHandlerRequest.Merge(m, src)
 }
 func (m *ExtensionHandlerRequest) XXX_Size() int {
 	return xxx_messageInfo_ExtensionHandlerRequest.Size(m)
@@ -159,16 +163,17 @@ func (m *ExtensionHandlerResponse) Reset()         { *m = ExtensionHandlerRespon
 func (m *ExtensionHandlerResponse) String() string { return proto.CompactTextString(m) }
 func (*ExtensionHandlerResponse) ProtoMessage()    {}
 func (*ExtensionHandlerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_extension_d25f09c742c58c90, []int{2}
+	return fileDescriptor_2d065b70573ae483, []int{2}
 }
+
 func (m *ExtensionHandlerResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ExtensionHandlerResponse.Unmarshal(m, b)
 }
 func (m *ExtensionHandlerResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ExtensionHandlerResponse.Marshal(b, m, deterministic)
 }
-func (dst *ExtensionHandlerResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExtensionHandlerResponse.Merge(dst, src)
+func (m *ExtensionHandlerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExtensionHandlerResponse.Merge(m, src)
 }
 func (m *ExtensionHandlerResponse) XXX_Size() int {
 	return xxx_messageInfo_ExtensionHandlerResponse.Size(m)
@@ -216,16 +221,17 @@ func (m *Wrapper) Reset()         { *m = Wrapper{} }
 func (m *Wrapper) String() string { return proto.CompactTextString(m) }
 func (*Wrapper) ProtoMessage()    {}
 func (*Wrapper) Descriptor() ([]byte, []int) {
-	return fileDescriptor_extension_d25f09c742c58c90, []int{3}
+	return fileDescriptor_2d065b70573ae483, []int{3}
 }
+
 func (m *Wrapper) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Wrapper.Unmarshal(m, b)
 }
 func (m *Wrapper) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Wrapper.Marshal(b, m, deterministic)
 }
-func (dst *Wrapper) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Wrapper.Merge(dst, src)
+func (m *Wrapper) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Wrapper.Merge(m, src)
 }
 func (m *Wrapper) XXX_Size() int {
 	return xxx_messageInfo_Wrapper.Size(m)
@@ -264,9 +270,9 @@ func init() {
 	proto.RegisterType((*Wrapper)(nil), "openapiextension.v1.Wrapper")
 }
 
-func init() { proto.RegisterFile("extension.proto", fileDescriptor_extension_d25f09c742c58c90) }
+func init() { proto.RegisterFile("extension.proto", fileDescriptor_2d065b70573ae483) }
 
-var fileDescriptor_extension_d25f09c742c58c90 = []byte{
+var fileDescriptor_2d065b70573ae483 = []byte{
 	// 357 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x91, 0x4d, 0x4b, 0xc3, 0x40,
 	0x18, 0x84, 0x49, 0xbf, 0x62, 0x56, 0x6c, 0x65, 0x2d, 0x1a, 0xc5, 0x43, 0x09, 0x08, 0x45, 0x64,
