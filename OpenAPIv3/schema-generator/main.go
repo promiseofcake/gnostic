@@ -19,6 +19,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -619,8 +620,11 @@ func arrayOfSchema() *jsonschema.Schema {
 }
 
 func main() {
+	filename := flag.String("filename", "3.0.1.md", "OpenAPI Spec Doc to Process")
+	flag.Parse()
+
 	// read and parse the text specification into a model structure
-	model, err := NewSchemaModel("3.0.1.md")
+	model, err := NewSchemaModel(*filename)
 	if err != nil {
 		panic(err)
 	}
